@@ -12,10 +12,6 @@ class IncomesController < ApplicationController
     @income = Income.new
   end
 
-  def edit 
-    @income = Income.find(params[:id])
-  end
-
   def create
     @income = Income.new(income_params)
     if @income.save
@@ -23,6 +19,10 @@ class IncomesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit 
+    @income = Income.find(params[:id])
   end
 
   def update
