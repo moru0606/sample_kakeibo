@@ -1,7 +1,7 @@
 <% @page_title = '固定費用科目一覧'%>
 <h2><%= @page_title %></h2>
-<% link_to '固定費用の新規登録', :new_income %>
-<% if @incomes.present? %>
+<% link_to '固定費用の新規登録', :new_fixdcost %>
+<% if @fixdcosts.present? %>
 <table>
     <thead>
         <tr>
@@ -12,13 +12,13 @@
     </thead>
 
     <tbody>
-        <% @incomes.each do |income| %>
+        <% @fixdcosts.each do |fixdcost| %>
           <tr>
-              <td><%= income.name %></td>
-              <td><%= income.description%></td>
+              <td><%= fixdcost.name %></td>
+              <td><%= fixdcost.description%></td>
               <td>
-              <%= link_to '編集', [:edit,income] %>
-              <%= link_to '削除', income, method: :delete,data: { confirm: '本当に削除しますか？'} %>
+              <%= link_to '編集', [:edit,fixdcost] %>
+              <%= link_to '削除', fixdcost, method: :delete,data: { confirm: '本当に削除しますか？'} %>
               </td>
           </tr>
         <% end %>

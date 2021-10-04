@@ -1,6 +1,6 @@
 class FixdcostsController < ApplicationController
   def index
-    @fixdcosts = Fixdcost.order{created_at: :asc}
+    @fixdcosts = Fixdcost.order(created_at: :asc)
   end
 
   def show
@@ -11,8 +11,8 @@ class FixdcostsController < ApplicationController
     @fixdcost = Fixdcost.new
   end
 
-  def cretae
-    @fixdcost = Fixdcost.find(fixdcost_params)
+  def create
+    @fixdcost = Fixdcost.new(fixdcost_params)
     if @fixdcost.save
       redirect_to @fixdcost, notice: '固定費を登録しました'
     else
@@ -25,8 +25,8 @@ class FixdcostsController < ApplicationController
   end
 
   def update
-    @fixdcost = Fixdcost.find(fixdcost_params)
-    if @fixdcost.update
+    @fixdcost = Fixdcost.find(params[:id])
+    if @fixdcost.update(fixdcost_params)
       redirect_to @fixdcost, notice: '固定費を登録しました'
     else
       redirect_to 'new'
@@ -35,7 +35,7 @@ class FixdcostsController < ApplicationController
     def destroy
       @fixdcost = Fixdcost.find(params[:id])
       @fixdcost.destroy
-      redirect_to @fixdcosts, notice: '科目を削除しました'
+      redirect_to :fixdcosts, notice: '科目を削除しました'
     end
   end
 end
