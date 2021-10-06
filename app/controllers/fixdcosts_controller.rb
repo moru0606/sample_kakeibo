@@ -16,7 +16,7 @@ class FixdcostsController < ApplicationController
     if @fixdcost.save
       redirect_to @fixdcost, notice: '固定費を登録しました'
     else
-      redirect_to 'new'
+      render 'new'
     end
   end
 
@@ -29,7 +29,7 @@ class FixdcostsController < ApplicationController
     if @fixdcost.update(fixdcost_params)
       redirect_to @fixdcost, notice: '固定費を登録しました'
     else
-      redirect_to 'new'
+      render 'new'
     end
 
     def destroy

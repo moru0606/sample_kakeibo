@@ -1,6 +1,6 @@
 <% @page_title = '固定費用科目一覧'%>
 <h2><%= @page_title %></h2>
-<% link_to '固定費用の新規登録', :new_fixdcost %>
+<%= link_to '固定費用の新規登録', :new_fixdcost %>
 <% if @fixdcosts.present? %>
 <table>
     <thead>

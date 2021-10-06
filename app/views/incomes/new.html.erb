@@ -1,5 +1,5 @@
 <h2>収入科目登録</h2>
 <%= form_with(model: @income) do |f| %>
-    <%= render 'incomes/form', f: f  %>
+    <%= render 'layouts/form', f: f  %>
     <div><%= f.submit '登録' %></div>
 <% end %>
