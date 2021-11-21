@@ -1,11 +1,11 @@
 class VariablecostsController < ApplicationController
+  before_action :set_target_variablecost, only: %i[show edit update destroy]
 
   def index
     @variablecosts = Variablecost.order(created_at: :asc)
   end
 
   def show
-    @variablecost = Variablecost.find(params[:id])
   end
 
   def new
@@ -22,12 +22,9 @@ class VariablecostsController < ApplicationController
   end
   
   def edit
-    @variablecost = Variablecost.find(params[:id])
-
   end
 
   def update
-    @variablecost = Variablecost.find(params[:id])
     if @variablecost.update(variablecost_params)
       redirect_to @variablecost, notice: '変動費科目を登録しました'
     else
@@ -36,7 +33,6 @@ class VariablecostsController < ApplicationController
   end
 
   def destroy
-    @variablecost = Variablecost.find(params[:id])
     @variablecost.destroy
     redirect_to :variablecosts, notice: '科目を削除しました'
   end
@@ -46,4 +42,8 @@ private
 
 def variablecost_params
   params.require(:variablecost).permit(:name, :description)
+end
+
+def set_target_variablecost
+  @variablecost = Variablecost.find(params[:id])
 end
