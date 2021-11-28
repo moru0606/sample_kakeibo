@@ -1,13 +1,12 @@
 class FixdcostsController < ApplicationController
   before_action :set_target_fixdcost, only: %i[show edit update destroy]
-  
+
   def index
     @fixdcosts = Fixdcost.order(created_at: :asc)
   end
 
-  def show
-  end
-  
+  def show; end
+
   def new
     @fixdcost = Fixdcost.new
   end
@@ -21,8 +20,7 @@ class FixdcostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @fixdcost.update(fixdcost_params)
@@ -39,6 +37,7 @@ class FixdcostsController < ApplicationController
 end
 
 private
+
 def fixdcost_params
   params.require(:fixdcost).permit(:name, :description)
 end

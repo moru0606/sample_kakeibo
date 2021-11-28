@@ -5,8 +5,7 @@ class VariablecostsController < ApplicationController
     @variablecosts = Variablecost.order(created_at: :asc)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @variablecost = Variablecost.new
@@ -20,9 +19,8 @@ class VariablecostsController < ApplicationController
       render 'new'
     end
   end
-  
-  def edit
-  end
+
+  def edit; end
 
   def update
     if @variablecost.update(variablecost_params)

@@ -1,12 +1,11 @@
 class IncomesController < ApplicationController
-  before_action :set_target_income:, only: %i[show edit update destroy]
+  before_action :set_target_income, only: %i[show edit update destroy]
 
   def index
-    @incomes = Income.order(created_at: :asc) 
+    @incomes = Income.order(created_at: :asc)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @income = Income.new
@@ -21,8 +20,7 @@ class IncomesController < ApplicationController
     end
   end
 
-  def edit 
-  end
+  def edit; end
 
   def update
     @income.update(income_params)
@@ -38,6 +36,7 @@ class IncomesController < ApplicationController
     redirect_to :incomes, notice: '科目を削除しました'
   end
 end
+
 private
 
 def income_params
